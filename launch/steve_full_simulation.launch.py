@@ -10,10 +10,10 @@ def generate_launch_description():
   ld = LaunchDescription()
 
   # 1. Bring up simulation + localization + navigation
-  # This uses the localization_simulation launch from neo_nav2_bringup
+  # This uses the localization_simulation launch from steve_navigation
   sim_nav_launch = IncludeLaunchDescription(
     PythonLaunchDescriptionSource(
-      os.path.join(get_package_share_directory('neo_nav2_bringup'), 'launch', 'localization_simulation.launch.py')
+      os.path.join(get_package_share_directory('steve_navigation'), 'launch', 'localization_simulation.launch.py')
     ),
     launch_arguments={
       'world': 'small_house',
@@ -24,7 +24,7 @@ def generate_launch_description():
   # 2. RViz for visualization (optional - can be launched separately if there are library issues)
   # Uncomment if RViz works on your system:
   # rviz_config = os.path.join(
-  #   get_package_share_directory('neo_nav2_bringup'), 
+  #   get_package_share_directory('steve_navigation'), 
   #   'rviz', 
   #   'single_robot.rviz'
   # )

@@ -25,12 +25,12 @@ class CommandGroundingNode(Node):
     self.declare_parameter('scene_graph_path', '/home/ritz/steve_ros2_ws/generated_graph')
     scene_graph_path = self.get_parameter('scene_graph_path').value
     
-    # Get map path from neo_simulation2 package
+    # Get map path from steve_simulation package
     try:
-      neo_sim_dir = get_package_share_directory('neo_simulation2')
+      neo_sim_dir = get_package_share_directory('steve_simulation')
       map_yaml_path = os.path.join(neo_sim_dir, 'maps', 'small_house.yaml')
     except Exception as e:
-      self.get_logger().warn(f"Could not find neo_simulation2 package: {e}")
+      self.get_logger().warn(f"Could not find steve_simulation package: {e}")
       map_yaml_path = None
     
     # Initialize Robot (Aggregates Nav/Perc/Manip)

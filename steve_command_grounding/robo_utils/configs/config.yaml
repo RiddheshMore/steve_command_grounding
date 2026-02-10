@@ -1,0 +1,25 @@
+# This file acts as the base configuration file for the project.
+project_name: "steve_command_grounding"
+note: "ported from stretch-compose"
+
+robot_parameters:
+  verbose: False
+
+# device on which to run models
+device: "cpu"
+
+# paths are relative from project_root_directory
+subpaths:
+  cache: "cache/"
+  logs: "data/logs/"
+  output: "output/"
+  data: "data/"
+  images: "data/images"
+  masks: "data/ipad_scans"
+
+# dockers (if used)
+servers:
+  graspnet:
+    ip: "127.0.0.1"
+    port: 5000
+    route: "graspnet/predict"

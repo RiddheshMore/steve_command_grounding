@@ -138,7 +138,8 @@ class SceneGraphManager:
               'id': fid,
               'label': fdata['label'],
               'centroid': fdata['centroid'],
-              'dimensions': fdata['dimensions']
+              'dimensions': fdata['dimensions'],
+              'pose': fdata.get('pose')
             })
             
     return matches
@@ -156,7 +157,8 @@ class SceneGraphManager:
         'id': obj_id,
         'label': fdata['label'],
         'centroid': fdata['centroid'],
-        'dimensions': fdata['dimensions']
+        'dimensions': fdata['dimensions'],
+        'pose': fdata.get('pose')
       }
 
     obj_info = {
@@ -164,13 +166,15 @@ class SceneGraphManager:
       'id': obj_id,
       'label': 'none',
       'centroid': [0, 0, 0],
-      'dimensions': [0, 0, 0]
+      'dimensions': [0, 0, 0],
+      'pose': None
     }
 
     if obj_id in self.objects:
       obj_info['label'] = self.objects[obj_id].get('label', 'none')
       obj_info['centroid'] = self.objects[obj_id].get('centroid', [0, 0, 0])
       obj_info['dimensions'] = self.objects[obj_id].get('dimensions', [0, 0, 0])
+      obj_info['pose'] = self.objects[obj_id].get('pose')
     
     furn_id = self.connections.get(obj_id)
     if furn_id is not None:
